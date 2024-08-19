@@ -43,7 +43,7 @@ export default function Header() {
           <input
             type="text"
             placeholder="Search"
-            className="flex-grow text-white bg-neutral-900 border border-neutral-700 px-4 py-2 rounded-l-full focus:outline-blue-300"
+            className="flex-grow text-white bg-neutral-900 border border-neutral-700 px-4 py-2 rounded-l-full outline:none"
           />
           <button className="bg-neutral-800 px-5 border-t border-b border-r rounded-r-full border-neutral-700 flex items-center justify-center">
             <BiSearch size={25} color="white" />
