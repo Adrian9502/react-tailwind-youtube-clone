@@ -54,18 +54,20 @@ export default function Header() {
         </div>
       </nav>
       {/* right side */}
-      <nav className="flex items-center mr-1 space-x-5">
-        <div className="w-10 h-10 hover:bg-zinc-700 transition cursor-pointer rounded-full flex items-center justify-center">
-          <LiaUploadSolid size={21} color="white" />
-        </div>
-        <div className="w-10 h-10 hover:bg-zinc-700 transition cursor-pointer rounded-full flex items-center justify-center">
-          <FaRegBell size={21} color="white" />
+      <nav className="flex items-center mr-1 space-x-3">
+        <div className="flex  gap-1 mr-3">
+          <div className="w-10 h-10 hover:bg-zinc-700 transition cursor-pointer rounded-full flex items-center justify-center">
+            <LiaUploadSolid size={21} color="white" />
+          </div>
+          <div className="w-10 h-10 hover:bg-zinc-700 transition cursor-pointer rounded-full flex items-center justify-center">
+            <FaRegBell size={21} color="white" />
+          </div>
         </div>
         <div className="w-9 h-9 cursor-pointer">
           <img
             src="https://randomuser.me/api/portraits/women/66.jpg"
             className="w-full h-full rounded-full"
-            alt=""
+            alt="user profile"
           />
         </div>
       </nav>
