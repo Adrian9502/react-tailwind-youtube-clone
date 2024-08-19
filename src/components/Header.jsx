@@ -6,10 +6,10 @@ import { HiMicrophone } from "react-icons/hi2";
 import youtubeText from "/youtube.png";
 export default function Header() {
   return (
-    <header className="bg-neutral-900 flex pb-3 pt-2 px-4 justify-between items-center">
+    <header className="bg-zinc-900 sticky top-0 left-0 right-0 flex pb-3 pt-2 px-4 justify-between items-center">
       {/* left side */}
       <nav className="flex items-center space-x-4">
-        <div className="rounded-full hover:bg-neutral-700 cursor-pointer transition p-2.5">
+        <div className="rounded-full hover:bg-zinc-700 cursor-pointer transition p-2.5">
           <SlMenu color="white" size={20} />
         </div>
         <div className="flex items-center cursor-pointer">
@@ -43,22 +43,22 @@ export default function Header() {
           <input
             type="text"
             placeholder="Search"
-            className="flex-grow text-white bg-neutral-900 border border-neutral-700 px-4 py-2 rounded-l-full outline:none focus:outline-none"
+            className="flex-grow text-white bg-zinc-900 border border-zinc-700 px-4 py-2 rounded-l-full outline:none focus:outline-none"
           />
-          <button className="bg-neutral-800 px-5 border-t border-b border-r rounded-r-full border-neutral-700 flex items-center justify-center">
+          <button className="bg-zinc-800 px-5 border-t border-b border-r rounded-r-full border-zinc-700 flex items-center justify-center">
             <BiSearch size={25} color="white" />
           </button>
         </div>
-        <div className="flex items-center justify-center ml-4 hover:bg-neutral-600 cursor-pointer bg-neutral-700 transition p-2.5 rounded-full">
+        <div className="flex items-center justify-center ml-4 hover:bg-zinc-600 cursor-pointer bg-zinc-700 transition p-2.5 rounded-full">
           <HiMicrophone size={20} color="white" />
         </div>
       </nav>
       {/* right side */}
       <nav className="flex items-center mr-1 space-x-5">
-        <div className="w-10 h-10 hover:bg-neutral-700 transition cursor-pointer rounded-full flex items-center justify-center">
+        <div className="w-10 h-10 hover:bg-zinc-700 transition cursor-pointer rounded-full flex items-center justify-center">
           <LiaUploadSolid size={21} color="white" />
         </div>
-        <div className="w-10 h-10 hover:bg-neutral-700 transition cursor-pointer rounded-full flex items-center justify-center">
+        <div className="w-10 h-10 hover:bg-zinc-700 transition cursor-pointer rounded-full flex items-center justify-center">
           <FaRegBell size={21} color="white" />
         </div>
         <div className="w-9 h-9 cursor-pointer">
