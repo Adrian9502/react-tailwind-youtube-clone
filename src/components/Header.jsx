@@ -34,16 +34,16 @@ export default function Header() {
             ></path>
           </svg>
 
-          <img src={youtubeText} className="h-6" alt="" />
+          <img src={youtubeText} className="w-16" alt="" />
         </div>
       </nav>
       {/* middle side */}
       <nav className="flex items-center w-[38%] pl-7">
-        <div className="flex-grow flex  overflow-hidden">
+        <div className="flex-grow flex overflow-hidden">
           <input
             type="text"
             placeholder="Search"
-            className="flex-grow text-white bg-neutral-900 border border-neutral-700 px-4 py-2 rounded-l-full outline:none"
+            className="flex-grow text-white bg-neutral-900 border border-neutral-700 px-4 py-2 rounded-l-full outline:none focus:outline-none"
           />
           <button className="bg-neutral-800 px-5 border-t border-b border-r rounded-r-full border-neutral-700 flex items-center justify-center">
             <BiSearch size={25} color="white" />
