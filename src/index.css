@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.gothic {
+  font-family: "Gothic A1", sans-serif;
+}
