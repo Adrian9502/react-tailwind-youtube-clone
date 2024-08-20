@@ -6,7 +6,7 @@ import { HiMicrophone } from "react-icons/hi2";
 import youtubeText from "/youtube.png";
 export default function Header() {
   return (
-    <header className="bg-zinc-900 sticky top-0 left-0 right-0 flex pb-3 pt-2 px-4 justify-between items-center">
+    <header className="bg-zinc-900 z-10 sticky top-0 left-0 right-0 flex pb-3 pt-2 px-4 justify-between items-center">
       {/* left side */}
       <nav className="flex items-center space-x-4">
         <div className="rounded-full hover:bg-zinc-700 cursor-pointer transition p-2.5">
