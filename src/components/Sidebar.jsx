@@ -32,6 +32,7 @@ export default function Sidebar({ isCollapsed }) {
             {mainMenuItems.map((item, index) => (
               <div
                 key={index}
+                title={item.text}
                 className="transition hover:bg-neutral-700 cursor-pointer rounded-xl p-2 flex items-center justify-center"
               >
                 <item.icon size={24} color="white" />

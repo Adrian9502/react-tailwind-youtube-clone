@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import Video from "./Video";
-
-export default function Main({ className = "" }) {
+import { Oval } from "react-loader-spinner";
+import { Link } from "react-router-dom";
+export default function Main({ className = "", isCollapse }) {
   const [videos, setVideos] = useState([]);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
@@ -22,7 +23,6 @@ export default function Main({ className = "" }) {
       }
 
       const data = await response.json();
-      console.log(data);
 
       setVideos((prevVideos) => {
         const newVideos = data.hits.filter(
@@ -42,20 +42,35 @@ export default function Main({ className = "" }) {
     setPage((prevPage) => prevPage + 1);
   };
 
-  return (
+  return loading ? (
+    <div className="bg-zinc-900 flex items-center justify-center h-screen">
+      <Oval
+        visible={true}
+        height="80"
+        width="80"
+        color="rgb(161 161 170)"
+        ariaLabel="oval-loading"
+        secondaryColor="color: rgb(64 64 64)"
+      />
+    </div>
+  ) : (
     <main
-      className={`bg-zinc-900 ${className} grid p-4 grid-cols-2  md:grid-cols-3 lg:grid-cols-4 gap-6`}
+      className={`bg-zinc-900 ${className} grid p-4 gap-6 ${
+        isCollapse ? "grid-cols-5" : "grid-cols-4"
+      }`}
     >
       {videos.map((video, index) => (
-        <Video key={index} video={video} />
+        <Link to={`/watch/${video.id}`} key={video.id}>
+          <Video key={index} video={video} />
+        </Link>
       ))}
       <div className="col-span-full flex justify-center mt-4">
         <button
           onClick={loadMoreVideos}
-          className="bg-blue-600 text-white px-4 py-2 rounded-lg"
+          className="border-2 border-zinc-500 hover:border-zinc-700 transition text-white px-4 py-2 rounded-lg"
           disabled={loading}
         >
-          {loading ? "Loading..." : "Load More"}
+          Load More
         </button>
       </div>
     </main>

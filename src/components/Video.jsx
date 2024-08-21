@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
+import { useEffect, useState } from "react";
 import { BsThreeDotsVertical } from "react-icons/bs";
 
-// Helper function to format views
 function formatViews(views) {
   if (views >= 1000000) {
     return (views / 1000000).toFixed(1) + "M views";
@@ -13,8 +13,12 @@ function formatViews(views) {
 }
 
 export default function Video({ video }) {
+  const [daysAgo, setDaysAgo] = useState(0);
+  useEffect(() => {
+    setDaysAgo(Math.floor(Math.random() * 10) + 1);
+  }, []);
   return (
-    <div className="w-full rounded-lg ">
+    <div className="cursor-pointer w-full rounded-lg ">
       <div className="relative">
         <img
           src={video.videos.medium.thumbnail}
@@ -45,8 +49,7 @@ export default function Video({ video }) {
           </div>
           <span className="text-sm text-zinc-400">{video.user}</span>
           <span className="text-sm text-zinc-400">
-            {formatViews(video.views)} &middot;{" "}
-            {Math.floor(Math.random() * 10) + 1} days ago
+            {formatViews(video.views)} &middot; {daysAgo} days ago
           </span>
         </div>
       </div>
