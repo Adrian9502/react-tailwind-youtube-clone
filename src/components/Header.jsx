@@ -4,12 +4,16 @@ import { FaRegBell } from "react-icons/fa6";
 import { BiSearch } from "react-icons/bi";
 import { HiMicrophone } from "react-icons/hi2";
 import youtubeText from "/youtube.png";
-export default function Header() {
+
+export default function Header({ toggleSidebar }) {
   return (
     <header className="bg-zinc-900 z-10 sticky top-0 left-0 right-0 flex pb-3 pt-2 px-4 justify-between items-center">
       {/* left side */}
       <nav className="flex items-center space-x-4">
-        <div className="rounded-full hover:bg-zinc-700 cursor-pointer transition p-2.5">
+        <div
+          className="rounded-full hover:bg-zinc-700 cursor-pointer transition p-2.5"
+          onClick={toggleSidebar}
+        >
           <SlMenu color="white" size={20} />
         </div>
         <div className="flex items-center cursor-pointer">
@@ -55,7 +59,7 @@ export default function Header() {
       </nav>
       {/* right side */}
       <nav className="flex items-center mr-1 space-x-3">
-        <div className="flex  gap-1 mr-3">
+        <div className="flex gap-1 mr-3">
           <div className="w-10 h-10 hover:bg-zinc-700 transition cursor-pointer rounded-full flex items-center justify-center">
             <LiaUploadSolid size={21} color="white" />
           </div>
