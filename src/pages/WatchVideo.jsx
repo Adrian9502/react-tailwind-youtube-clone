@@ -9,6 +9,7 @@ import { TfiDownload } from "react-icons/tfi";
 import { PiShareFatLight } from "react-icons/pi";
 import { BiLike } from "react-icons/bi";
 import { BiDislike } from "react-icons/bi";
+import Comments from "./watch-video/Comments";
 
 export default function WatchVideo() {
   const [loading, setLoading] = useState(false);
@@ -145,14 +146,14 @@ export default function WatchVideo() {
               </span>
             </div>
 
-            {/* comments */}
-            <div></div>
+            {/* comments <MdSort /> */}
+            <Comments />
           </div>
         </>
       ) : (
         <p>No video found</p>
       )}
-      <div className="bg-red-400 ml-6">hello</div>
+      <div className="bg-red-400 ml-6">other video recommendations here</div>
     </div>
   );
 }
