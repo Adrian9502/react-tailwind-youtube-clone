@@ -23,6 +23,7 @@ export default function Main({ className = "", isCollapse }) {
       }
 
       const data = await response.json();
+      console.log(data);
 
       setVideos((prevVideos) => {
         const newVideos = data.hits.filter(

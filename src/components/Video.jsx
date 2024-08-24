@@ -13,6 +13,10 @@ function formatViews(views) {
 }
 
 export default function Video({ video }) {
+  // Extract and capitalize the first tag
+  const firstTag = video ? video.tags.split(",")[0].trim() : "";
+  const capitalizedTag = firstTag.charAt(0).toUpperCase() + firstTag.slice(1);
+
   const [daysAgo, setDaysAgo] = useState(0);
   useEffect(() => {
     setDaysAgo(Math.floor(Math.random() * 10) + 1);
@@ -44,7 +48,7 @@ export default function Video({ video }) {
         />
         <div className="flex flex-col font-semibold ml-3 w-full">
           <div className="flex items-center justify-between w-full">
-            <span className="text-white text-sm">{video.tags}</span>
+            <span className="text-white text-sm">{capitalizedTag}</span>
             <BsThreeDotsVertical color="white" size={22} />
           </div>
           <span className="text-sm text-zinc-400">{video.user}</span>
