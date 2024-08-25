@@ -34,8 +34,4 @@ This project is a simple YouTube clone built using **React** and **Tailwind CSS*
 
 ## Demo
 
-<!-- Autoplay video example -->
-<video width="600" controls autoplay muted>
-  <source src="./demo.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+https://github.com/Adrian9502/react-tailwind-youtube-clone/blob/main/demo.mp4
