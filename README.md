@@ -34,4 +34,4 @@ This project is a simple YouTube clone built using **React** and **Tailwind CSS*
 
 ## Demo
 
-https://github.com/Adrian9502/react-tailwind-youtube-clone/blob/main/demo.mp4
+[![Watch the video](https://img.youtube.com/vi/FGo11sBgZnU/0.jpg)](https://youtu.be/FGo11sBgZnU)
