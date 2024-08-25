@@ -39,5 +39,3 @@ This project is a simple YouTube clone built using **React** and **Tailwind CSS*
   <source src="./demo.mkv" type="video/mp4">
   Your browser does not support the video tag.
 </video>
-
-## Features
