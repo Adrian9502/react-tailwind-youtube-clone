@@ -43,13 +43,13 @@ export default function Comments() {
   return (
     <div className="mt-10 p-3">
       {/* Comments Header */}
-      <div className="flex mb-6 justify-between items-center">
+      <div className="flex mb-6 gap-9 items-center">
         <span className="font-bold text-xl">15,902 Comments</span>
         <button
           className="text-sm flex items-center focus:outline-none"
           aria-label="Sort comments"
         >
-          <MdSort size={20} />
+          <MdSort size={25} />
           Sort by
         </button>
       </div>

@@ -30,7 +30,7 @@ function OtherPeopleComments({ comment, userProfile }) {
           <div>{comment.body}</div>
 
           {/* Likes and Actions */}
-          <div className="py-3 flex items-center">
+          <div className="py-1 flex items-center">
             <div className="flex items-center gap-1">
               <span
                 title="like"

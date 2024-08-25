@@ -131,7 +131,7 @@ export default function WatchVideo() {
                     {video.user} &#9835;
                   </span>
                   <span className="text-sm text-neutral-400">
-                    952K subscribers
+                    {Math.floor(Math.random() * 999) + 1}K subscribers
                   </span>
                 </div>
                 <button
@@ -147,7 +147,7 @@ export default function WatchVideo() {
                   aria-label="Like video"
                 >
                   <BiLike size={25} />
-                  20K |
+                  {Math.floor(Math.random() * 9) + 1}K |
                   <BiDislike size={25} />
                 </div>
                 <VideoItem Icon={PiShareFatLight} text="Share" />
