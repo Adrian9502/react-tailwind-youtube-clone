@@ -1,79 +1,100 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
+import PropTypes from "prop-types"; // Import PropTypes for prop validation
 import { MdSort } from "react-icons/md";
-import { AiOutlineLike } from "react-icons/ai";
-import { BiDislike } from "react-icons/bi";
-import { IoIosArrowDown } from "react-icons/io";
+import OtherPeopleComments from "./OtherPeopleComments";
 
 export default function Comments() {
+  const [comments, setComments] = useState([]);
+  const [userProfiles, setUserProfiles] = useState([]);
+
+  // Fetch comments
+  useEffect(() => {
+    async function fetchComments() {
+      try {
+        const response = await fetch("https://dummyjson.com/comments");
+        const data = await response.json();
+        setComments(data.comments);
+      } catch (error) {
+        console.error("Error fetching comments:", error);
+      }
+    }
+
+    fetchComments();
+  }, []);
+
+  // Fetch user profiles
+  useEffect(() => {
+    async function fetchUserProfiles() {
+      try {
+        const response = await fetch("https://randomuser.me/api/?results=30");
+        const data = await response.json();
+        setUserProfiles(data.results);
+      } catch (error) {
+        console.error("Error fetching user profiles:", error);
+      }
+    }
+
+    fetchUserProfiles();
+  }, []);
+
+  // Function to get a random profile picture if available
+  const getUserProfile = (index) => userProfiles[index] || {};
+
   return (
-    <div className="mt-10 p-3 ">
-      <div className="flex mb-6 justify-items-center">
-        <span className="font-bold text-xl mr-6">15,902 Comments</span>
-        <span className="text-sm flex items-center">
+    <div className="mt-10 p-3">
+      {/* Comments Header */}
+      <div className="flex mb-6 justify-between items-center">
+        <span className="font-bold text-xl">15,902 Comments</span>
+        <button
+          className="text-sm flex items-center focus:outline-none"
+          aria-label="Sort comments"
+        >
           <MdSort size={20} />
           Sort by
-        </span>
+        </button>
       </div>
-      {/* add a comment */}
+
+      {/* Add a Comment Section */}
       <div className="flex my-6">
         <img
           src="https://randomuser.me/api/portraits/women/66.jpg"
           className="w-10 h-10 rounded-full"
-          alt="user profile"
+          alt="Your profile"
         />
         <div className="flex flex-col ml-4 w-full">
           <span className="text-sm text-neutral-400">Add a comment...</span>
           <hr className="border-b border-neutral-600" />
         </div>
       </div>
-      {/* other people comments */}
-      <div className="flex gap-4">
-        <img
-          src="https://randomuser.me/api/portraits/women/66.jpg"
-          className="w-10 h-10 rounded-full"
-          alt="user profile"
+
+      {/* Render Other People's Comments */}
+      {comments.map((comment, index) => (
+        <OtherPeopleComments
+          key={comment.id}
+          comment={comment}
+          userProfile={getUserProfile(index)}
         />
-        <div className="flex flex-col text-sm">
-          <div className="font-semibold flex gap-2">
-            <span>@loremHAHA</span>
-            <span className="text-neutral-500">11 months ago</span>
-          </div>
-          <div>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda
-            recusandae ratione provident accusamus ullam, quibusdam in expedita
-            dolor sapiente cum vel alias mollitia aperiam eligendi
-            exercitationem maiores dolorum natus. Molestias!
-          </div>
-          {/* likes */}
-          <div className="py-3 flex items-center">
-            <div className="flex items-center gap-1 ">
-              <span
-                title="like"
-                className="hover:bg-neutral-700 rounded-full transition cursor-pointer p-1 "
-              >
-                <AiOutlineLike size={23} />
-              </span>
-              <span className="font-semibold">15K</span>
-            </div>
-            <div
-              title="dislike"
-              className="ml-3 hover:bg-neutral-700 rounded-full transition cursor-pointer p-1"
-            >
-              <BiDislike size={23} />
-            </div>
-            <span className="text-xs ml-6 font-bold transition hover:bg-neutral-700 cursor-pointer p-2 rounded-full">
-              Reply
-            </span>
-          </div>
-          <div className="flex w-fit py-2 px-4 ml-2 rounded-full hover:bg-blue-500/25 transition cursor-pointer">
-            <IoIosArrowDown size={20} color="rgb(59,130,146)" />
-            <div className="flex gap-2 ml-2 text-blue-500 font-semibold">
-              <span>{Math.floor(Math.random() * 999) + 1}</span>
-              <span>replies</span>
-            </div>
-          </div>
-        </div>
-      </div>
+      ))}
     </div>
   );
 }
+
+// PropTypes for validation
+Comments.propTypes = {
+  comments: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      body: PropTypes.string.isRequired,
+    })
+  ),
+  userProfiles: PropTypes.arrayOf(
+    PropTypes.shape({
+      picture: PropTypes.shape({
+        thumbnail: PropTypes.string,
+      }),
+      login: PropTypes.shape({
+        username: PropTypes.string,
+      }),
+    })
+  ),
+};
