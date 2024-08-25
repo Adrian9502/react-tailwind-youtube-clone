@@ -1,14 +1,13 @@
 import { SlMenu } from "react-icons/sl";
 import { LiaUploadSolid } from "react-icons/lia";
 import { FaRegBell } from "react-icons/fa6";
-import { BiSearch } from "react-icons/bi";
-import { HiMicrophone } from "react-icons/hi2";
 import youtubeText from "/youtube.png";
 import { Link } from "react-router-dom";
+import Search from "./Search";
 
 export default function Header({ toggleSidebar }) {
   return (
-    <header className="bg-zinc-900 z-10 sticky top-0 left-0 right-0 flex pb-3 pt-2 px-4 justify-between items-center">
+    <header className="bg-zinc-900 z-10 sticky top-0 left-0 right-0 flex pb-3 pt-2 px-4 justify-between items-center shadow-lg">
       {/* Left side */}
       <nav className="flex items-center space-x-4">
         <button
@@ -45,28 +44,7 @@ export default function Header({ toggleSidebar }) {
         </Link>
       </nav>
       {/* Middle side */}
-      <nav className="flex items-center w-[38%] pl-7">
-        <div className="flex-grow flex overflow-hidden">
-          <input
-            type="text"
-            placeholder="Search"
-            className="flex-grow text-white bg-zinc-900 border border-zinc-700 px-4 py-2 rounded-l-full outline-none focus:outline-none"
-            aria-label="Search"
-          />
-          <button
-            className="bg-zinc-800 px-5 border-t border-b border-r rounded-r-full border-zinc-700 flex items-center justify-center"
-            aria-label="Search button"
-          >
-            <BiSearch size={25} color="white" />
-          </button>
-        </div>
-        <button
-          className="flex items-center justify-center ml-4 hover:bg-zinc-600 cursor-pointer bg-zinc-700 transition p-2.5 rounded-full"
-          aria-label="Voice search"
-        >
-          <HiMicrophone size={20} color="white" />
-        </button>
-      </nav>
+      <Search />
       {/* Right side */}
       <nav className="flex items-center mr-1 space-x-3">
         <div className="flex gap-1 mr-3">

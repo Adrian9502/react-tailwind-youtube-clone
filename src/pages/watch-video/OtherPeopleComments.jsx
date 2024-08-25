@@ -92,12 +92,4 @@ OtherPeopleComments.propTypes = {
   }),
 };
 
-// Default props if none are provided
-OtherPeopleComments.defaultProps = {
-  userProfile: {
-    picture: { thumbnail: "https://via.placeholder.com/40" },
-    login: { username: "Unknown User" },
-  },
-};
-
 export default OtherPeopleComments;
