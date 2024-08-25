@@ -36,6 +36,6 @@ This project is a simple YouTube clone built using **React** and **Tailwind CSS*
 
 <!-- Autoplay video example -->
 <video width="600" controls autoplay muted>
-  <source src="./demo.mkv" type="video/mp4">
+  <source src="./demo.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
