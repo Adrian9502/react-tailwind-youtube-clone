@@ -1,4 +1,3 @@
-import { useState } from "react";
 import IconTextItem from "./sidebar/IconTextItem";
 import UserSubscriptionItem from "./sidebar/UserSubscription";
 import {
@@ -14,8 +13,9 @@ import { IoIosArrowDown } from "react-icons/io";
 export default function Sidebar({ isCollapsed }) {
   return (
     <aside
-      className={`bg-zinc-900 fixed top-0 left-0 h-full overflow-auto p-3 text-white text-sm font-semibold flex flex-col transition-all duration-300 
+      className={`bg-zinc-900 fixed top-0  left-0 h-full overflow-auto p-3 text-white text-sm font-semibold flex flex-col transition-all duration-300 
       ${isCollapsed ? "w-16" : "w-[240px]"}
+      ${isCollapsed ? "" : "pt-20"}
     `}
     >
       {/* Main Menu Items */}
