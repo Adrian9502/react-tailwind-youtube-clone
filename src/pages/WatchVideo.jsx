@@ -11,6 +11,7 @@ import { RiScissorsLine } from "react-icons/ri";
 import { TfiDownload } from "react-icons/tfi";
 import { BiLike, BiDislike } from "react-icons/bi";
 import Comments from "./watch-video/Comments";
+import Recommendation from "./watch-video/Recommendation";
 
 export default function WatchVideo() {
   const [loading, setLoading] = useState(false);
@@ -23,8 +24,6 @@ export default function WatchVideo() {
       try {
         const response = await fetch("https://dummyjson.com/quotes/random");
         const data = await response.json();
-        console.log(data);
-
         setDescription(data); // Set the whole object
       } catch (error) {
         console.error("Error fetching description:", error);
@@ -189,7 +188,9 @@ export default function WatchVideo() {
       ) : (
         <p>No video found</p>
       )}
-      <div className="bg-red-400 ml-6">other video recommendations here</div>
+      <div className="ml-4 ">
+        <Recommendation />
+      </div>
     </div>
   );
 }
